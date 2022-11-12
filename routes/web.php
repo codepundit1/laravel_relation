@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,6 @@ Route::get('students/restore/{id}', [StudentController::class, 'restore'])->name
 
 Route::resource('phones', PhoneController::class)->except('show');
 Route::get('phones/restore/{id}', [PhoneController::class, 'restore'])->name('phones.restore');
+
+Route::resource('categories', CategoryController::class)->except('show');
+Route::get('categories/restore/{id}', [PhoneController::class, 'restore'])->name('categories.restore');

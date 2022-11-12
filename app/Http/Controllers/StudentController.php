@@ -65,10 +65,4 @@ class StudentController extends Controller
         return redirect(route('students.index'))->with('error', 'Somethings Went Wrong');
     }
 
-    // public function forceDelete($student)
-    // {
-    //     Student::onlyTrashed()->find($student)->forceDelete();
-    //     return redirect()->back()->with('success', 'Student Permanantly Deleted!');
-    //     return redirect(route('students.index'))->with('error', 'Somethings Went Wrong');
-    // }
 }

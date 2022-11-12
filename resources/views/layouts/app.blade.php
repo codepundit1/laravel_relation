@@ -44,11 +44,11 @@
                         <a class="nav-link" href="{{ route('phones.index') }}">Phone</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Category</a>
+                        <a class="nav-link" href="{{ route('categories.index') }}">Category</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sub Category</a>
-                    </li>
+                    {{-- <li class="nav-item">
+                        <a class="nav-link" href="{{ route('phones.index') }}">Sub Category</a>
+                    </li> --}}
                 </ul>
             </div>
         </div>
