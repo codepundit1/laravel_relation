@@ -38,10 +38,6 @@
                                                     data-toggle="tooltip" title="Restore"><i
                                                         class="text-primary fa-sharp fa-solid fa-trash-can-arrow-up"></i>
                                                 </a>
-                                                <a class="" href="{{ route('phones.force-delete', $phones) }}"
-                                                    data-toggle="tooltip" title="Delete">
-                                                    <i class="text-danger fa-solid fa-trash"></i>
-                                                </a>
                                             @else
                                                 <a class="icon-margin" href="{{ route('phones.edit', $phone) }}"
                                                     data-toggle="tooltip" title="Edit"><i

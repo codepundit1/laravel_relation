@@ -64,4 +64,11 @@ class PhoneController extends Controller
 
         return redirect(route('phones.index'))->with('error', 'Somethings Went Wrong');
     }
+
+    public function restore($phone)
+    {
+        Phone::withTrashed()->find($phone)->restore();
+            return redirect()->back()->with('success', 'Phone Restored!');
+        return redirect(route('phones.index'))->with('error', 'Somethings Went Wrong');
+    }
 }

@@ -19,11 +19,9 @@ Route::get('/', function () {
     return view('layouts.app');
 });
 
-Route::resource('students', StudentController::class);
+Route::resource('students', StudentController::class)->except('show');
 Route::get('students/restore/{id}', [StudentController::class, 'restore'])->name('students.restore');
-Route::get('students/forcedelete/{id}', [StudentController::class, 'forceDelete'])->name('students.force-delete');
 
 
-Route::resource('phones', PhoneController::class);
+Route::resource('phones', PhoneController::class)->except('show');
 Route::get('phones/restore/{id}', [PhoneController::class, 'restore'])->name('phones.restore');
-Route::get('phones/forcedelete/{id}', [PhoneController::class, 'forceDelete'])->name('phones.force-delete');

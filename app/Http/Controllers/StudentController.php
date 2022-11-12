@@ -61,14 +61,14 @@ class StudentController extends Controller
     public function restore($student)
     {
         Student::withTrashed()->find($student)->restore();
-            return redirect()->back()->with('success', 'Student Restored!');
+        return redirect()->back()->with('success', 'Student Restored!');
         return redirect(route('students.index'))->with('error', 'Somethings Went Wrong');
     }
 
-    public function forceDelete($student)
-    {
-        Student::onlyTrashed()->find($student)->forceDelete();
-            return redirect()->back()->with('success', 'Student Permanantly Deleted!');
-        return redirect(route('students.index'))->with('error', 'Somethings Went Wrong');
-    }
+    // public function forceDelete($student)
+    // {
+    //     Student::onlyTrashed()->find($student)->forceDelete();
+    //     return redirect()->back()->with('success', 'Student Permanantly Deleted!');
+    //     return redirect(route('students.index'))->with('error', 'Somethings Went Wrong');
+    // }
 }
