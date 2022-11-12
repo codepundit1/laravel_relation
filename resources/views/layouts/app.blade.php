@@ -46,9 +46,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('categories.index') }}">Category</a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="{{ route('phones.index') }}">Sub Category</a>
-                    </li> --}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('sub-categories.index') }}">Sub Category</a>
+                    </li>
                 </ul>
             </div>
         </div>

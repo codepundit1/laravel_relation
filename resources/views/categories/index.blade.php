@@ -18,7 +18,7 @@
                         <thead>
                             <tr>
                                 <th>S.N.</th>
-                                <th>Name</th>
+                                <th>Category Name</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
