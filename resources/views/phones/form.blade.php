@@ -25,7 +25,7 @@
                         <select class="form-select form-control mb-3" name="student_id" id="student_id">
                             <option selected>Select Student...</option>
                             @foreach ($students as $student)
-                                <option value="{{ $student->id }}">{{ $student->name }}</option>
+                                <option value="{{ $student->id }}" {{ $student->id == $phone->student_id ? 'selected' : '' }}>{{ $student->name }}</option>
                             @endforeach
                         </select>
                     </div>

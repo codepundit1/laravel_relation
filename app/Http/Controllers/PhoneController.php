@@ -39,7 +39,8 @@ class PhoneController extends Controller
 
     public function edit(Phone $phone)
     {
-        return view('phones.form', compact('phone'));
+        $students = Student::orderBy('name')->get();
+        return view('phones.form', compact('phone', 'students'));
     }
 
 
