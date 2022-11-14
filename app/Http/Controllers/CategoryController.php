@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -10,7 +11,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::withTrashed()->latest()->paginate();
+        $categories = Category::with('sub_categories')->latest()->paginate();
         return view('categories.index', compact('categories'));
     }
 
@@ -27,7 +28,7 @@ class CategoryController extends Controller
             'name' => ['required', 'string', 'max:255'],
         ]);
 
-        if (Category::create($valid));
+        if(Category::create($valid))
         return redirect(route('categories.index'))->with('success', 'Category added Successfully');
 
         return redirect(route('categories.index'))->with('error', 'Somethings Went Wrong');

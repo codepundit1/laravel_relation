@@ -11,7 +11,7 @@ class SubCategoryController extends Controller
 
     public function index()
     {
-        $sub_categories = SubCategory::with('category')->withTrashed()->latest()->paginate();
+        $sub_categories = SubCategory::with('category')->latest()->paginate();
         return view('sub-categories.index', compact('sub_categories'));
     }
 
@@ -27,7 +27,7 @@ class SubCategoryController extends Controller
     {
         $valid = $request->validate([
             'category_id' => ['required'],
-            'phn_no' => ['required', 'string', 'max:255'],
+            'subcat_name' => ['required', 'string', 'max:255'],
         ]);
 
         if (SubCategory::create($valid));
@@ -39,7 +39,8 @@ class SubCategoryController extends Controller
 
     public function edit(SubCategory $subCategory)
     {
-        return view('sub_categories.form', compact('subCategory'));
+        $categories = Category::orderBy('name')->get();
+        return view('sub-categories.form', compact('subCategory', 'categories'));
     }
 
 
@@ -47,7 +48,7 @@ class SubCategoryController extends Controller
     {
         $valid = $request->validate([
             'category_id' => ['required'],
-            'phn_no' => ['required', 'string', 'max:255'],
+            'subcat_name' => ['required', 'string', 'max:255'],
         ]);
 
         if ($subCategory->update($valid));

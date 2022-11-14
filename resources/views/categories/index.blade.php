@@ -31,12 +31,6 @@
                                     </td>
                                     <td>
                                         <div class="btn-group" student="group" aria-label="Basic example">
-                                            @if ($student->deleted_at != null)
-                                                <a class="icon-margin" href="{{ route('categories.restore', $student) }}"
-                                                    data-toggle="tooltip" title="Restore"><i
-                                                        class="text-primary fa-sharp fa-solid fa-trash-can-arrow-up"></i>
-                                                </a>
-                                            @else
                                                 <a class="icon-margin" href="{{ route('categories.edit', $student) }}"
                                                     data-toggle="tooltip" title="Edit"><i
                                                         class="text-primary fa-solid fa-pen-to-square"></i></a>
@@ -47,7 +41,6 @@
                                                         data-toggle="tooltip" title="Delete"><i
                                                             class="text-warning fa-sharp fa-solid fa-trash-can-arrow-up"></i></button>
                                                 </form>
-                                            @endif
                                         </div>
                                     </td>
                                 </tr>

@@ -30,8 +30,7 @@ class StudentController extends Controller
         Phone::create([
             'student_id' => $student->id,
             'phn_no' => $request->phn_no,
-        ]
-        );
+        ]);
         return redirect(route('students.index'))->with('success', 'Student added Successfully');
     }
 

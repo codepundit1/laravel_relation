@@ -22,7 +22,7 @@
 
                 @if (isset($category))
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label">Category Name</label>
                         <input type="text" value="{{ $category->name }}" name="name"
                             class="form-control @error('name') is-invalid @enderror">
                         @error('name')
@@ -31,7 +31,7 @@
                     </div>
                 @else
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label">Category Name</label>
                         <input type="text" value="{{ old('name') }}" name="name"
                             class="form-control @error('name') is-invalid @enderror">
                         @error('name')
