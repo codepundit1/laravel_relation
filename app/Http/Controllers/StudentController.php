@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Phone;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@ class StudentController extends Controller
 
     public function index()
     {
-        $students = Student::withTrashed()->latest()->paginate();
+        $students = Student::latest()->paginate();
         return view('students.index', compact('students'));
     }
 
@@ -25,10 +26,13 @@ class StudentController extends Controller
             'name' => ['required', 'string', 'max:255'],
         ]);
 
-        if (Student::create($valid));
+        $student = Student::create($valid);
+        Phone::create([
+            'student_id' => $student->id,
+            'phn_no' => $request->phn_no,
+        ]
+        );
         return redirect(route('students.index'))->with('success', 'Student added Successfully');
-
-        return redirect(route('students.index'))->with('error', 'Somethings Went Wrong');
     }
 
     public function edit(Student $student)

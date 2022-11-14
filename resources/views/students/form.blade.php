@@ -39,6 +39,20 @@
                         @enderror
                     </div>
                 @endif
+                @if (isset($student))
+                    <div class="mb-3">
+
+                    </div>
+                @else
+                    <div class="mb-3">
+                        <label for="phn_no" class="form-label">Phone Number</label>
+                        <input type="text" value="{{ old('phn_no') }}" name="phn_no"
+                            class="form-control @error('phn_no') is-invalid @enderror">
+                        @error('phn_no')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                @endif
                 <a href="{{ route('students.index') }}" class="btn btn-success">Back</a>
                 @if (isset($student))
                     <button type="submit" class="btn btn-primary float-right">Update</button>

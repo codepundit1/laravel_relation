@@ -28,7 +28,7 @@ class CategoryController extends Controller
         ]);
 
         if (Category::create($valid));
-        return redirect(route('categories.index'))->with('success', 'category added Successfully');
+        return redirect(route('categories.index'))->with('success', 'Category added Successfully');
 
         return redirect(route('categories.index'))->with('error', 'Somethings Went Wrong');
     }
@@ -47,7 +47,7 @@ class CategoryController extends Controller
         ]);
 
         if ($category->update($valid));
-        return redirect(route('categories.index'))->with('success', 'category added Successfully');
+        return redirect(route('categories.index'))->with('success', 'Category updated Successfully');
 
         return redirect(route('categories.index'))->with('error', 'Somethings Went Wrong');
     }
@@ -56,7 +56,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         if ($category->delete())
-        return redirect()->back()->with('success', 'category deleted!');
+        return redirect()->back()->with('success', 'Category deleted!');
 
     return redirect(route('categories.index'))->with('error', 'Somethings Went Wrong');
     }
@@ -64,7 +64,7 @@ class CategoryController extends Controller
     public function restore($category)
     {
         Category::withTrashed()->find($category)->restore();
-        return redirect()->back()->with('success', 'category Restored!');
+        return redirect()->back()->with('success', 'Category Restored!');
         return redirect(route('categories.index'))->with('error', 'Somethings Went Wrong');
     }
 }

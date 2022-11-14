@@ -11,7 +11,7 @@ class PhoneController extends Controller
 
     public function index()
     {
-        $phones = Phone::with('student')->withTrashed()->latest()->paginate();
+        $phones = Phone::with('student')->latest()->paginate();
         return view('phones.index', compact('phones'));
     }
 

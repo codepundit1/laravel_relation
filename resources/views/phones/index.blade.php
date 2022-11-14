@@ -20,7 +20,6 @@
                                 <th>S.N.</th>
                                 <th>Student</th>
                                 <th>Phone</th>
-                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                             @foreach ($phones as $index => $phone)
@@ -28,17 +27,8 @@
                                     <td>{{ $index + $phones->firstItem() }}</td>
                                     <td>{{ $phone->student->name }}</td>
                                     <td>{{ $phone->phn_no }}</td>
-                                    <td class='{{ $phone->deleted_at != null ? 'text-danger' : 'text-success' }}'>
-                                        {{ $phone->deleted_at != null ? 'Inactive' : 'Active' }}
-                                    </td>
                                     <td>
                                         <div class="btn-group" phone="group" aria-label="Basic example">
-                                            @if ($phone->deleted_at != null)
-                                                <a class="icon-margin" href="{{ route('phones.restore', $phone) }}"
-                                                    data-toggle="tooltip" title="Restore"><i
-                                                        class="text-primary fa-sharp fa-solid fa-trash-can-arrow-up"></i>
-                                                </a>
-                                            @else
                                                 <a class="icon-margin" href="{{ route('phones.edit', $phone) }}"
                                                     data-toggle="tooltip" title="Edit"><i
                                                         class="text-primary fa-solid fa-pen-to-square"></i></a>
@@ -49,7 +39,6 @@
                                                         data-toggle="tooltip" title="Delete"><i
                                                             class="text-warning fa-sharp fa-solid fa-trash-can-arrow-up"></i></button>
                                                 </form>
-                                            @endif
                                         </div>
                                     </td>
                                 </tr>
@@ -57,7 +46,6 @@
                         </thead>
                     </table>
                 </div>
-                <a type="button" href="{{ route('phones.create') }}" class="btn btn-sm btn-dark float-end">Create</a>
             </div>
         </div>
     </div>

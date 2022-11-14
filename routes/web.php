@@ -22,14 +22,10 @@ Route::get('/', function () {
 });
 
 Route::resource('students', StudentController::class)->except('show');
-Route::get('students/restore/{id}', [StudentController::class, 'restore'])->name('students.restore');
 
 
 Route::resource('phones', PhoneController::class)->except('show');
-Route::get('phones/restore/{id}', [PhoneController::class, 'restore'])->name('phones.restore');
 
 Route::resource('categories', CategoryController::class)->except('show');
-Route::get('categories/restore/{id}', [CategoryController::class, 'restore'])->name('categories.restore');
 
 Route::resource('sub-categories', SubCategoryController::class)->except('show');
-Route::get('sub-categories/restore/{id}', [SubCategoryController::class, 'restore'])->name('sub-categories.restore');
