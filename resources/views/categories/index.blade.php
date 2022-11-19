@@ -19,22 +19,28 @@
                             <tr>
                                 <th>S.N.</th>
                                 <th>Category Name</th>
+                                <th>Sub Category</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
-                            @foreach ($categories as $index => $student)
+                            @foreach ($categories as $index => $cat)
                                 <tr>
                                     <td>{{ $index + $categories->firstItem() }}</td>
-                                    <td>{{ $student->name }}</td>
-                                    <td class='{{ $student->deleted_at != null ? 'text-danger' : 'text-success' }}'>
-                                        {{ $student->deleted_at != null ? 'Inactive' : 'Active' }}
+                                    <td>{{ $cat->name }}</td>
+                                    <td>
+                                        @foreach ($cat->sub_categories as $sub)
+                                            {{ $sub->subcat_name }} <br />
+                                        @endforeach
+                                    </td>
+                                    <td class='{{ $cat->deleted_at != null ? 'text-danger' : 'text-success' }}'>
+                                        {{ $cat->deleted_at != null ? 'Inactive' : 'Active' }}
                                     </td>
                                     <td>
-                                        <div class="btn-group" student="group" aria-label="Basic example">
-                                                <a class="icon-margin" href="{{ route('categories.edit', $student) }}"
+                                        <div class="btn-group"  aria-label="Basic example">
+                                                <a class="icon-margin" href="{{ route('categories.edit', $cat) }}"
                                                     data-toggle="tooltip" title="Edit"><i
                                                         class="text-primary fa-solid fa-pen-to-square"></i></a>
-                                                <form action="{{ route('categories.destroy', $student) }}" method="POST">
+                                                <form action="{{ route('categories.destroy', $cat) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="bg-transparent btn shadow-none p-0 m-0"
